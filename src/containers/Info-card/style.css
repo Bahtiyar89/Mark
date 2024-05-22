@@ -1,0 +1,19 @@
+.info__card {
+    background: #FFC224;
+    backdrop-filter: blur(16.5px);
+    border-radius: 12px;
+    width: 221px;
+    height: auto;
+    padding: 20px;
+    margin-right: 16px;
+}
+
+.info__card h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+}

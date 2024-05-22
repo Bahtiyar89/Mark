@@ -1,0 +1,198 @@
+.home {
+    padding-bottom: 50px;
+}
+
+.card1 {
+    height: 380px; 
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: self-end; 
+    cursor: pointer; 
+} 
+
+.card1 .textwr {
+    width: 100%;
+    text-align: start; 
+    padding-bottom: 10px;  
+}
+ 
+
+.card1 .prname {  
+    font-size: 14px;
+} 
+ 
+.card1 .prprice {   
+    font-size: 16px;
+    font-weight: 700; 
+} 
+
+.card1 .img {
+    object-fit: cover;
+    margin: auto;
+}
+ 
+.center_no_products {
+    text-align: center;
+    padding-top: 20%;
+    font-weight: bold;
+}
+
+.text_wrapper {
+    width: 100%;
+}
+
+.stockbtn {
+    width: 150px; 
+    font-size: 16px;
+}
+
+.stocktxt {
+    font-size: 14px; 
+}
+
+.loader_web {
+    display: flex;
+}
+
+.loader_mobile {
+    display: none;
+}
+
+
+.main__products .pagination button {
+    width: 100%;
+    background: #F8F8F8;
+    border-radius: 6px;
+    padding: 15px 0; 
+    font-weight: 500;
+    font-size: 16px; 
+    color: #333333;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.main__products .pagination .flex {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__products .pagination .flex p {
+    font-weight: 500;
+    font-size: 18px; 
+    color: #333333;
+    margin: 0 16px;
+    cursor: pointer;
+}
+
+ 
+
+@media (min-width: 1500px) {
+    .medialower { 
+        max-width: 1400px;
+        width: 100%;
+        margin: auto;
+    }      
+    .card { 
+        height: 100%;
+        width: 270px;
+    }     
+}
+
+@media (max-width: 1400px) {
+    .medialower { 
+        max-width: 1100px;
+        width: 100%;
+        margin: auto;
+    }      
+     
+}
+
+@media (max-width: 1200px) {
+    .medialower { 
+        max-width: 840px;
+        width: 100%;
+        margin: auto;
+    }    
+}
+
+@media (max-width: 850px) {
+    .medialower { 
+        max-width: 550px;
+        width: 100%;
+        margin: auto;
+    }          
+}
+
+@media (max-width: 578px) {
+    .medialower { 
+        max-width: 560px;
+        width: 100%;
+        margin: auto;
+    }      
+    .stockbtn {
+        width: 100%; 
+        font-size: 14px;
+    }
+  
+    .card1 .prname {  
+        width: 100%;
+        font-size: 12px;
+    } 
+
+    .card1 .prprice {  
+        font-size: 14px;
+        font-weight: 700;
+    } 
+    .stocktxt {
+        font-size: 12px; 
+    }
+    
+    .loader_web {
+        display: none;
+    }
+    
+    .loader_mobile {
+        display: flex;
+    }
+}
+ 
+@media (max-width: 390px) { 
+    .medialower {
+        max-width: 390px;
+        width: 100%;
+        margin: auto;
+    }      
+    .card1 .prname {  
+        width: 100%;
+        font-size: 12px;
+    } 
+
+    .card1 .prprice {  
+        font-size: 14px;
+        font-weight: 700;
+    } 
+
+    .stockbtn {
+        width: 100%; 
+        font-size: 10px;
+    }
+
+    .stocktxt {
+        font-size: 12px; 
+    } 
+    
+    .loader_web {
+        display: flex;
+    }
+    
+    .loader_mobile {
+        display: flex;
+    }
+}
+

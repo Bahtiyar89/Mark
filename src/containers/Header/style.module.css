@@ -1,0 +1,145 @@
+.medialower { 
+    padding-top: 10px;
+} 
+   
+.hideGrid {
+    display: flex;
+    justify-content: flex-end;
+}   
+
+.profile svg {
+    margin: 10px;
+}
+
+.search {
+    margin-bottom: 10px;
+} 
+
+.basket {
+    margin: 10px;
+    display: flex;
+}
+
+.drop {
+    margin-top: 18px;
+    padding-left: 25px;
+}  
+
+.logo_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+.drop_lang {
+    display: none; 
+ }
+ 
+.profile_style {
+    display: flex;
+    width: 45px;
+    height: 35px;
+}
+
+.basket_style {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    z-index: 0;
+}
+
+@media (min-width: 1500px) {
+    .medialower { 
+        max-width: 1400px;
+        width: 100%;
+        margin: auto;
+    }   
+    
+    .hideGrid {
+        display: flex;
+    }   
+
+    .drop_lang {
+        display: none;
+    }     
+}
+
+@media (max-width: 1400px) {
+    .medialower { 
+        max-width: 1100px;
+        width: 100%;
+        margin: auto;
+    }   
+    
+    .hideGrid {
+        display: flex;
+    } 
+
+    .drop_lang {
+        display: none;
+    }    
+} 
+
+@media (max-width: 1200px) {
+    .medialower { 
+        max-width: 840px;
+        width: 100%;
+        margin: auto;
+    }   
+    
+    .hideGrid {
+        display: flex;
+    }
+
+    .drop_lang {
+        display: none;
+    }   
+}
+
+@media (max-width: 850px) {
+    .medialower { 
+        max-width: 550px;
+        width: 100%;
+        margin: auto;
+    }      
+    
+    .hideGrid {
+        display: none;
+        background-color: red;
+    }  
+
+    .drop_lang {
+        display: flex;
+    }    
+}
+
+@media (max-width: 578px) {
+    .medialower { 
+        max-width: 560px;
+        width: 100%;
+        margin: auto;
+    }   
+    
+    .hideGrid {
+        display: none;
+    } 
+
+    .drop_lang {
+        display: flex;
+    }      
+  
+}
+ 
+@media (max-width: 390px) { 
+    .medialower {
+        max-width: 390px;
+        width: 100%;
+        margin: auto;
+    } 
+    
+    .drop_lang {
+        display: flex;
+    }  
+}

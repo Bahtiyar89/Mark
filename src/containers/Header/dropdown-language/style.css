@@ -1,0 +1,45 @@
+.dropdown__lang {
+    position: relative;
+    display: flex;
+    flex-direction: row; 
+}
+
+.dropdown__lang .dropdown__lang-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+
+.dropdown__lang .dropdown__lang-title svg{
+    margin-right: 5px;
+}
+
+.dropdown__lang .dropdown__lang-items {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background: #ab2a2a;
+    border-radius: 8px;
+    padding: 20px;
+    width: auto;
+    z-index: 1;
+}
+
+.dropdown__lang .dropdown__lang-items .dropdown__lang-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: red;
+}
+
+.dropdown__lang .dropdown__lang-items .dropdown__lang-item p{
+    margin-left: 14px;
+    margin-right: 6px;
+    margin-top: -4px;
+}
+
+@media (max-width: 576px) {
+    .dropdown__lang .dropdown__lang-items{
+        padding: 12px 12px 10px 12px;
+    }
+}

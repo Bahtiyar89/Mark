@@ -1,0 +1,76 @@
+.delivery_wrapper {
+    padding-left: 15px;
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add_adress_wrapper {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+ 
+.dots_wrapper {
+    right: 20px; 
+    position: absolute
+}
+ 
+.edit_btn { margin-right: 10px }
+
+.delete_btn {  
+   
+}
+
+@media (max-width: 1400px) {
+  .edit_btn {
+    font-size: 12px; 
+    height: 30px; 
+  }
+  .delete_btn {
+    font-size: 12px; 
+    height: 30px;   
+  } 
+}
+
+@media (max-width: 1200px) {
+  .edit_btn {
+    font-size: 10px; 
+    height: 25px; 
+  }
+  .delete_btn {
+    font-size: 10px; 
+    height: 25px;  
+  }
+}
+
+@media (max-width: 850px) {
+  .edit_btn {
+    font-size: 10px; 
+    height: 25px; 
+  }
+  .delete_btn {
+    font-size: 10px; 
+    height: 25px;  
+  }    
+}
+
+@media (max-width: 578px) {
+   
+  .edit_btn {
+    font-size: 10px; 
+    height: 25px; 
+  }
+  .delete_btn {
+    font-size: 10px; 
+    height: 25px;  
+  }
+}
+
+@media (max-width: 390px) { 
+ 
+  
+}

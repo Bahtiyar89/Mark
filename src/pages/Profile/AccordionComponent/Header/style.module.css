@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn {
+  background: transparent;
+  border-color: transparent; 
+  background: '#eae6eb'; 
+}
+
+.end_status {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.payment_status { 
+  padding-left: 5; 
+  font-weight: bold; 
+}

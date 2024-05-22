@@ -1,0 +1,29 @@
+.change__btn { 
+    border-style: solid;
+    border-width: 1px;
+    border-color: #9A9FAA;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 105px;
+    height: auto;
+    padding: 4px 12px;
+}
+
+.change__btn p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.5px; 
+    height: 100%;
+    cursor: pointer;
+}
+
+.change__btn p svg{
+    fill: #FFFFFF;
+}

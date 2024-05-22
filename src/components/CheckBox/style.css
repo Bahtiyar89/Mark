@@ -1,0 +1,15 @@
+.checkbox input:checked {
+    background: #EE3D48;
+    border-color: #EE3D48;
+}
+
+.checkbox label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: -0.64px;
+    color: #ffffff;
+    margin-top: -2px;
+}

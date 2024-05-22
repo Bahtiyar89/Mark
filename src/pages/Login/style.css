@@ -1,0 +1,132 @@
+.login {
+    padding-top: 50px;
+}
+
+.login .login__box {
+    max-width: 934px;
+    margin: 0 auto;
+    background: #F8F8F8;
+    border-radius: 12px;
+    padding: 32px 48px;
+}
+
+.login .login__box h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.5px;
+    color: #333333;
+    margin-bottom: 32px;
+}
+
+.login .login__box .login__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login .login__box .login__flex .login__input label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+    color: #333333;
+    margin-bottom: 4px;
+}
+
+.login .login__box .login__flex .login__input input {
+    width: 370px;
+    height: 58px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+}
+
+.login .login__box .login__flex .login__form-flex {
+    display: flex;
+    flex-direction: row;
+    margin-top: 48px;
+}
+
+.login .login__box .login__flex .login__form-flex button {
+    border: none;
+    padding: 15px 32px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: -0.5px;
+    /* text-decoration-line: underline; */
+    color: #989898;
+    background: none;
+}
+
+.login .login__box .login__flex .login__form-flex .btn {
+    background: #EE3D48;
+    border-radius: 6px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+    padding: 15px 32px;
+    border: none;
+    margin-right: 10px;
+}
+
+.login .login__box .login__flex .login__qr p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    color: #333333;
+    margin-bottom: 16px;
+}
+
+
+.login .login__box .login__flex .login__qr .qr {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.login .login__box .login__flex .login__qr button {
+    background: #F1F1F1;
+    border-radius: 6px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    color: #333333;
+    padding: 17px 34px;
+    border: none;
+    margin-top: 30px;
+}
+
+.login .login__box .login__flex .login__qr button svg{
+    margin-left: 6px;
+}
+
+.login .login__box .login__flex .border {
+    height: 350px;
+    width: 1px;
+    background: #E4E4E4;
+}
