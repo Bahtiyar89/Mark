@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Card, LoadingOverlay, Text, TextInput } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 
@@ -213,4 +213,4 @@ const Category = ({
   );
 };
 
-export default Category;
+export default React.memo(Category);

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "containers/Header";
 import { Outlet } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
@@ -8,8 +8,6 @@ import AuthContext from "context/auth/AuthContext";
 import { ReactComponent as ChatButton } from "assets/chatButton.svg";
 import ChatContext from "../../context/chats/ChatContext";
 import useWebSocket from "./useWebSocket";
-// @ts-ignore
-import { Launcher } from "react-chat-window";
 import ChatWindow from "./CustomChat/chat_window";
 import Utils from "utils/Utils";
 
@@ -76,62 +74,58 @@ function Layout() {
   };
 
   const handleChatOpenButton = () => {
-    if (isSigned) {
-    } else {
+    if (!isSigned) {
       handleMetamaskOpen();
     }
 
     setIsOpen(!isOpen);
   };
 
-  console.log("messages: ", messages);
-  console.log("chatHistory: ", chHistory);
+  return (<>
+    <div
+      style={{
+        backgroundColor: "#E8EBF4",
+        borderBottomLeftRadius: "40px",
+        borderBottomRightRadius: "40px",
+        height: "100%",
+        width: "100%",
+      }}
+    >
+      <Header />
+      <Outlet />
+    </div>
 
-  return (
-    <>
-      <div
-        style={{
-          backgroundColor: "#E8EBF4",
-          borderBottomLeftRadius: "40px",
-          borderBottomRightRadius: "40px",
-          height: "100%",
-          width: "100%",
-        }}
-      >
-        <Header />
-        <Outlet />
-      </div>
-      <Footer />
+    <Footer />
 
-      <button
-        style={{
-          position: "sticky",
-          float: "right",
-          right: 30,
-          bottom: 30,
-          width: 52,
-          height: 52,
-          borderRadius: 30,
-          borderWidth: "0px",
-          backgroundColor: "#4E8BFF",
-        }}
-        className="chat-btn"
-        type="button"
-        onClick={handleChatOpenButton}
-      >
-        <ChatButton />
-      </button>
+    <button
+      style={{
+        position: "sticky",
+        float: "right",
+        right: 30,
+        bottom: 30,
+        width: 52,
+        height: 52,
+        borderRadius: 30,
+        borderWidth: "0px",
+        backgroundColor: "#4E8BFF",
+      }}
+      className="chat-btn"
+      type="button"
+      onClick={handleChatOpenButton}
+    >
+      <ChatButton />
+    </button>
 
-      <ChatWindow
-        isOpen={isOpen}
-        messages={chHistory}
-        onClose={handleClose}
-        onMessageSent={handleSendMessage}
-        title={t("online_operator")}
-        position={"bottom-right"}
-      />
-    </>
+    {isOpen && <ChatWindow
+      isOpen={isOpen}
+      messages={chHistory}
+      onClose={handleClose}
+      onMessageSent={handleSendMessage}
+      title={t("online_operator")}
+      position={"bottom-right"}
+    />}
+  </>
   );
 }
 
-export default Layout;
+export default React.memo(Layout);

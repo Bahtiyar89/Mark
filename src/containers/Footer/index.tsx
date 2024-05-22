@@ -8,6 +8,7 @@ function Footer() {
   const [t, i18n] = useTranslation();
   return (
     <div className={classes.footer}>
+      <link rel="preload" fetchPriority="high" href="assets/layouts/footer_desktop.svg" type="image/svg+xml" />
       <div style={{ position: "absolute", bottom: 100, left: 20 }}>
         <DropdownLanguage color={"white"} />
       </div>

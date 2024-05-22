@@ -74,4 +74,4 @@ const Sorting = ({ handleSort, sorteBy }: any) => {
   );
 };
 
-export default Sorting;
+export default React.memo(Sorting);

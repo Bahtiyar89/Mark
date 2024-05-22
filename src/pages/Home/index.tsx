@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useToasts } from "react-toast-notifications";
 import { useTranslation } from "react-i18next";
 import { Container, Grid, Button, Card, LoadingOverlay } from "@mantine/core";
@@ -27,7 +27,6 @@ function Home() {
     allProducts,
     getProductsByCategories,
     loading_product,
-    getAllProducts,
     addProductToBasket,
     minPrice,
     maxPrice,
@@ -104,8 +103,6 @@ function Home() {
     } else {
       getProductsByCategories(`${params.toString()}`);
     }
-
-    // getProductsByCategories(`page=1&page_size=${(currentPage + 1) * 24}`);
   };
 
   const navigatDetailed = (id: any) => {
@@ -194,6 +191,7 @@ function Home() {
   useEffect(() => {
     handleGetProducts();
   }, [selectedCategories, sorteBy]);
+
   useEffect(() => {
     const en = { event: { currentTarget: { checked: false } } };
     for (let index = 0; index < categories.length; index++) {
@@ -219,36 +217,6 @@ function Home() {
       newCategory.push(categories[k]);
     }
 
-    const nextShapes = categories.map((c) => {
-      let count = 0;
-      //column category name
-      if (c.slug === slug) {
-        c.checked = event.currentTarget.checked;
-        c.subcategories.map((s) => {
-          s.checked = event.currentTarget.checked;
-        });
-        return c;
-      } else {
-        //column subcategory name
-        c.subcategories.map((s) => {
-          if (s.slug === slug) {
-            s.checked = event.currentTarget.checked;
-          }
-          if (s.checked === true) {
-            count = count + 1;
-          }
-
-          if (c.subcategories.length == count) {
-            c.checked = true;
-          } else {
-            c.checked = false;
-          }
-        });
-
-        return c;
-      }
-    });
-
     for (let p of categories) {
       for (let i of p.subcategories) {
         if (i.checked) {
@@ -257,7 +225,6 @@ function Home() {
       }
     }
 
-    console.log("countTrue: ", countTrue);
     setSelectedCategoriesCount(countTrue);
 
     const searchArr = [];
@@ -306,7 +273,6 @@ function Home() {
       form.setFieldValue("max", maxPrice);
     }
   }, [minPrice, maxPrice]);
-  console.log("allProducts: ", allProducts);
 
   return (
     <>
@@ -320,7 +286,7 @@ function Home() {
       <div className={st.loader_mobile}>
         <LoadingOverlay visible={loading_product} overlayBlur={0} />
       </div>
-      <Container style={{ position: "relative" }} fluid>
+      <Container style={{ position: "relative", minHeight: '100vh' }} fluid>
         <div className={st.loader_web}>
           <LoadingOverlay visible={loading_product} overlayBlur={0} />
         </div>
@@ -329,7 +295,7 @@ function Home() {
             <SliderMain changeHandler={changeHandler} />
             <Sorting
               sorteBy={sorteBy}
-              handleSort={(val: string) => handleSort(val)}
+              handleSort={handleSort}
             />
             <Grid grow gutter={"xs"}>
               <Grid.Col xs={12} sm={12} md={4} lg={3} xl={2.5}>
@@ -343,74 +309,73 @@ function Home() {
                   handleGetProducts={handleGetProducts}
                 />
               </Grid.Col>
-              <Grid.Col xs={12} sm={12} md={8} lg={9} xl={9.5}>
+              {allProducts.length !== 0 && (<Grid.Col xs={12} sm={12} md={8} lg={9} xl={9.5}>
                 <Grid gutter={"xs"}>
-                  {allProducts.length > 0 &&
-                    allProducts.map((product: any, idx: any) => {
-                      return (
-                        <Grid.Col key={idx} xs={6} sm={6} md={6} lg={4} xl={3}>
-                          <Card
-                            className={st.card1}
-                            shadow="sm"
-                            p={"xs"}
-                            radius="md"
-                            withBorder
-                          >
-                            <div onClick={() => navigatDetailed(product.RecID)}>
-                              {product?.RecPict != null && (
-                                <img
-                                  style={{
-                                    maxHeight: "230px",
-                                    objectFit: "cover",
-                                    margin: "auto",
-                                    borderRadius: 3,
-                                  }}
-                                  src={`https://marketapi.swttoken.com/${product?.RecPict}`}
-                                  alt=""
-                                />
-                              )}
-                            </div>
+                  {allProducts.map((product: any, idx: any) => {
+                    return (
+                      <Grid.Col key={idx} xs={6} sm={6} md={6} lg={4} xl={3}>
+                        <Card
+                          className={st.card1}
+                          shadow="sm"
+                          p={"xs"}
+                          radius="md"
+                          withBorder
+                        >
+                          <div onClick={() => navigatDetailed(product.RecID)}>
+                            {product?.RecPict != null && (
+                              <img
+                                style={{
+                                  maxHeight: "230px",
+                                  objectFit: "cover",
+                                  margin: "auto",
+                                  borderRadius: 3,
+                                }}
+                                src={`https://marketapi.swttoken.com/${product?.RecPict}`}
+                                alt=""
+                              />
+                            )}
+                          </div>
 
-                            <div className={st.text_wrapper}>
-                              <div
-                                onClick={() => navigatDetailed(product.RecID)}
-                                className={st.textwr}
-                              >
-                                <p className={st.prname}>
-                                  <TextTranslate item={product} />
-                                </p>
-                                <p className={st.prprice}>
-                                  {product?.RecPrice} USD
-                                </p>
-                              </div>
-
-                              <p className={st.stocktxt}>
-                                {product.in_stock === 0 ? (
-                                  <span style={{ color: "red" }}>
-                                    {t("sold_out")}
-                                  </span>
-                                ) : (
-                                  <span style={{ color: "green" }}>
-                                    {t("in_stock")} {product.in_stock}{" "}
-                                    {t("items")}
-                                  </span>
-                                )}
+                          <div className={st.text_wrapper}>
+                            <div
+                              onClick={() => navigatDetailed(product.RecID)}
+                              className={st.textwr}
+                            >
+                              <p className={st.prname}>
+                                <TextTranslate item={product} />
                               </p>
-                              <Button
-                                className={st.stockbtn}
-                                bg={"#FA0100"}
-                                color="red"
-                                leftIcon={<IconBasket size={20} />}
-                                loaderPosition="right"
-                                onClick={() => handleSubtractProduct(product)}
-                              >
-                                {t("add_to_cart")}
-                              </Button>
+                              <p className={st.prprice}>
+                                {product?.RecPrice} USD
+                              </p>
                             </div>
-                          </Card>
-                        </Grid.Col>
-                      );
-                    })}
+
+                            <p className={st.stocktxt}>
+                              {product.in_stock === 0 ? (
+                                <span style={{ color: "red" }}>
+                                  {t("sold_out")}
+                                </span>
+                              ) : (
+                                <span style={{ color: "green" }}>
+                                  {t("in_stock")} {product.in_stock}{" "}
+                                  {t("items")}
+                                </span>
+                              )}
+                            </p>
+                            <Button
+                              className={st.stockbtn}
+                              bg={"#FA0100"}
+                              color="red"
+                              leftIcon={<IconBasket size={20} />}
+                              loaderPosition="right"
+                              onClick={() => handleSubtractProduct(product)}
+                            >
+                              {t("add_to_cart")}
+                            </Button>
+                          </div>
+                        </Card>
+                      </Grid.Col>
+                    );
+                  })}
                 </Grid>
 
                 {allProducts.length > 0 ? (
@@ -426,7 +391,7 @@ function Home() {
                     {t("by_selected_category_no_products")}
                   </p>
                 )}
-              </Grid.Col>
+              </Grid.Col>)}
             </Grid>
           </div>
         </div>
@@ -435,4 +400,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default React.memo(Home);
