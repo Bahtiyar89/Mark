@@ -1,16 +1,14 @@
 import { useReducer } from "react";
-import { useToasts } from "react-toast-notifications";
 import { doGet } from "../../utils/apiActions";
 import H4Context from "./H4Context";
 import H4Reducer from "./H4Reducer";
 
 import * as types from "./types";
+const initialState = {
+  countryList: [],
+};
 
 const H4State = (props) => {
-  const initialState = {
-    countryList: [],
-  };
-  const { addToast } = useToasts();
   const [state, dispatch] = useReducer(H4Reducer, initialState);
 
   const getCountries = async () => {

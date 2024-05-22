@@ -1,5 +1,10 @@
-.slider__main { 
+.slider__main {
     background-color: transparent;
+}
+
+.slider_img {
+    height: auto;
+    width: 100%;
 }
 
 .slider__main .slider img {
@@ -52,38 +57,36 @@
 }
 
 @media (min-width: 1500px) {
-    .slider__main { 
+    .slider__main {
         max-width: 1400px;
         width: 100%;
-        margin: auto; 
-    }      
-     
+        margin: auto;
+    }
+
 }
 
 @media (max-width: 1400px) {
-    .slider__main { 
+    .slider__main {
         max-width: 1100px;
         width: 100%;
-        margin: auto; 
-       
-    }      
-    
+        margin: auto;
+
+    }
+
 }
 
 @media (max-width: 1200px) {
-    .slider__main { 
+    .slider__main {
         max-width: 840px;
         width: 100%;
         margin: auto;
-    }    
+    }
 }
 
 @media (max-width: 850px) {
-    .slider__main { 
+    .slider__main {
         max-width: 550px;
         width: 100%;
         margin: auto;
-    }          
-} 
-  
-
+    }
+}

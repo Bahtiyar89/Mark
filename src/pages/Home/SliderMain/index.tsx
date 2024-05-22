@@ -1,9 +1,12 @@
 import Slider from "react-slick";
-import Alcohol from "../../../assets/images/slider/alcohol.webp";
-import Honey from "../../../assets/images/slider/honey.webp";
-import Water from "../../../assets/images/slider/water.webp";
+import Alcohol from "assets/images/slider/alcohol.webp"
+import Honey from "assets/images/slider/honey.webp";
+import Water from "assets/images/slider/water.webp";
 import "./style.css";
 import React from "react";
+
+import MobileAlcohol from "assets/images/slider/mobile/alcoholMobile.webp";
+
 
 type dataType = {
   id: number;
@@ -85,8 +88,6 @@ let settings = {
   ],
 };
 function SliderMain({ changeHandler }: any) {
-
-
   const handleCategory = (id: number) => {
     const e = { currentTarget: { checked: true } };
     const en = { currentTarget: { checked: false } };
@@ -99,18 +100,24 @@ function SliderMain({ changeHandler }: any) {
   return (
     <section className="slider__main">
 
-      <link rel="preload" fetchPriority="high" as="image" href="../../../assets/images/slider/alcohol.webp" type="image/webp" />
       <Slider {...settings}>
-        {data.map((d: any) => (
-          <div className="slider" key={d.id}>
-            <img
-              className="slider_img"
-              onClick={() => handleCategory(d.id)}
-              src={d.image}
-              alt=""
-            />
-          </div>
-        ))}
+        {data.map(({ id, image }) => {
+
+          return (
+            <div className="slider" key={id}>
+              <img
+                rel="preload"
+                className="slider_img"
+                src={image}
+                onClick={() => handleCategory(id)}
+                alt="slider image"
+                height={170}
+                width="400"
+              />
+            </div>
+          )
+        }
+        )}
       </Slider>
     </section>
   );

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
 import ChatMessage from "../chat_message";
 import "./chat-window.css";
@@ -28,30 +28,17 @@ const ChatWindow = ({
   const [file, setFile] = useState("");
 
   const handleChange = (event: any) => {
-    //setFile(URL.createObjectURL(event));
-
     if (event) {
       const reader = new FileReader();
       reader.onloadend = () => {
         const base64Image = reader.result;
 
         // @ts-ignore:
-        const base64Data = base64Image.replace(
+        base64Image.replace(
           /^data:image\/[a-z]+;base64,/,
           ""
         );
         onMessageSent(base64Image);
-        /*
-        const binaryData = atob(base64Data);
-        console.log("binaryData: ", binaryData);
-        const binaryArray = new Uint8Array(binaryData.length);
-        console.log("binaryArray: ", binaryArray);
-
-        for (let index = 0; index < binaryData.length; index++) {
-          // @ts-ignore:
-          binaryArray[index] = binaryData.charAt(index);
-        }
-        console.log("binaryArray: ", binaryArray.buffer);*/
       };
 
       reader.readAsDataURL(event);
@@ -84,8 +71,6 @@ const ChatWindow = ({
   useEffect(() => {
     autExpandInput();
   }, [userMessage]);
-  console.log("file: ", file);
-  console.log("messages: ", messages);
 
   return (
     <div
@@ -154,4 +139,4 @@ const ChatWindow = ({
   );
 };
 
-export default ChatWindow;
+export default React.memo(ChatWindow);

@@ -1,13 +1,13 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import Home from 'pages/Home'
+import { Layout } from "containers";
 
 const PrivateRouter = React.lazy(() => import("./PrivateRouter"));
 const PublicRouter = React.lazy(() => import("./PublicRouter"));
 const Page404 = React.lazy(() => import("pages/page404/Page404"));
-const Layout = React.lazy(() => import("containers/Layout"));
 const Adminchat = React.lazy(() => import("pages/Adminchat"));
 const Basket = React.lazy(() => import('pages/Basket'));
-const Home = React.lazy(() => import('pages/Home'));
 
 const DetailedProduct = React.lazy(() => import('pages/DetailedProduct'));
 const Profile = React.lazy(() => import('pages/Profile'));
@@ -22,7 +22,6 @@ function MainRoutes() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="profile" element={<Profile />} />
-
           <Route path="basket" element={<Basket />} />
           <Route path="delivery" element={<Delivery />} />
           <Route path="/detailed/:id" element={<DetailedProduct />} />

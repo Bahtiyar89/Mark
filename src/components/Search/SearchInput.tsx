@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { ActionIcon, TextInput } from "@mantine/core";
 import { IconSearch } from "@tabler/icons";
 import "./style.css";
@@ -42,4 +42,4 @@ const SearchInput: FC<SearchProps> = ({
   );
 };
 
-export default SearchInput;
+export default React.memo(SearchInput);

@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { Button, Card, Group, Radio, Text } from "@mantine/core";
+import { Button, Card, Radio, Text } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { IconPlus } from "@tabler/icons";
-import { ethers } from "ethers";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { useToasts } from "react-toast-notifications";
 import { useForm } from "@mantine/form";
@@ -34,26 +33,6 @@ const networks = {
     ],
     blockExplorerUrls: ["https://bscscan.com"],
   },
-  /* { bsc: {
-    chainId: `0x${Number(97).toString(16)}`,
-    chainName: "Binance Smart Chain Testnet",
-    nativeCurrency: {
-      name: "Binance Chain Native Token",
-      symbol: "BNB",
-      decimals: 18,
-    },
-    rpcUrls: [
-      "https://data-seed-prebsc-1-s1.binance.org:8545/",
-      "https://data-seed-prebsc-2-s1.binance.org:8545/",
-      "http://data-seed-prebsc-1-s2.binance.org:8545/",
-      "http://data-seed-prebsc-1-s2.binance.org:8545/",
-      "http://data-seed-prebsc-2-s2.binance.org:8545/",
-      "https://data-seed-prebsc-1-s3.binance.org:8545/",
-      "https://data-seed-prebsc-2-s3.binance.org:8545/",
-      "wss://bsc-ws-node.nariox.org",
-    ],
-    blockExplorerUrls: ["https://bscscan.com"],
-  },}*/
 };
 
 interface Props {
@@ -174,8 +153,8 @@ const DeliveryAddress = ({
           i18n.language == "en"
             ? c.name_en
             : i18n.language == "ru"
-            ? c.name_ru
-            : c.name_zh_hans,
+              ? c.name_ru
+              : c.name_zh_hans,
       };
     });
     return out;

@@ -309,89 +309,90 @@ function Home() {
                   handleGetProducts={handleGetProducts}
                 />
               </Grid.Col>
-              {allProducts.length !== 0 && (<Grid.Col xs={12} sm={12} md={8} lg={9} xl={9.5}>
-                <Grid gutter={"xs"}>
-                  {allProducts.map((product: any, idx: any) => {
-                    return (
-                      <Grid.Col key={idx} xs={6} sm={6} md={6} lg={4} xl={3}>
-                        <Card
-                          className={st.card1}
-                          shadow="sm"
-                          p={"xs"}
-                          radius="md"
-                          withBorder
-                        >
-                          <div onClick={() => navigatDetailed(product.RecID)}>
-                            {product?.RecPict != null && (
-                              <img
-                                style={{
-                                  maxHeight: "230px",
-                                  objectFit: "cover",
-                                  margin: "auto",
-                                  borderRadius: 3,
-                                }}
-                                src={`https://marketapi.swttoken.com/${product?.RecPict}`}
-                                alt=""
-                              />
-                            )}
-                          </div>
-
-                          <div className={st.text_wrapper}>
-                            <div
-                              onClick={() => navigatDetailed(product.RecID)}
-                              className={st.textwr}
-                            >
-                              <p className={st.prname}>
-                                <TextTranslate item={product} />
-                              </p>
-                              <p className={st.prprice}>
-                                {product?.RecPrice} USD
-                              </p>
+              {allProducts.length !== 0 &&
+                (<Grid.Col xs={12} sm={12} md={8} lg={9} xl={9.5}>
+                  <Grid gutter={"xs"}>
+                    {allProducts.map((product: any, idx: any) => {
+                      return (
+                        <Grid.Col key={idx} xs={6} sm={6} md={6} lg={4} xl={3}>
+                          <Card
+                            className={st.card1}
+                            shadow="sm"
+                            p={"xs"}
+                            radius="md"
+                            withBorder
+                          >
+                            <div onClick={() => navigatDetailed(product.RecID)}>
+                              {product?.RecPict != null && (
+                                <img
+                                  style={{
+                                    maxHeight: "230px",
+                                    objectFit: "cover",
+                                    margin: "auto",
+                                    borderRadius: 3,
+                                  }}
+                                  src={`https://marketapi.swttoken.com/${product?.RecPict}`}
+                                  alt=""
+                                />
+                              )}
                             </div>
 
-                            <p className={st.stocktxt}>
-                              {product.in_stock === 0 ? (
-                                <span style={{ color: "red" }}>
-                                  {t("sold_out")}
-                                </span>
-                              ) : (
-                                <span style={{ color: "green" }}>
-                                  {t("in_stock")} {product.in_stock}{" "}
-                                  {t("items")}
-                                </span>
-                              )}
-                            </p>
-                            <Button
-                              className={st.stockbtn}
-                              bg={"#FA0100"}
-                              color="red"
-                              leftIcon={<IconBasket size={20} />}
-                              loaderPosition="right"
-                              onClick={() => handleSubtractProduct(product)}
-                            >
-                              {t("add_to_cart")}
-                            </Button>
-                          </div>
-                        </Card>
-                      </Grid.Col>
-                    );
-                  })}
-                </Grid>
+                            <div className={st.text_wrapper}>
+                              <div
+                                onClick={() => navigatDetailed(product.RecID)}
+                                className={st.textwr}
+                              >
+                                <p className={st.prname}>
+                                  <TextTranslate item={product} />
+                                </p>
+                                <p className={st.prprice}>
+                                  {product?.RecPrice} USD
+                                </p>
+                              </div>
 
-                {allProducts.length > 0 ? (
-                  <ShowMore
-                    devidePage={devidePage}
-                    allProductsCount={allProductsCount}
-                    currentPage={currentPage}
-                    getPagination={getPagination}
-                    showMore={showMore}
-                  />
-                ) : (
-                  <p className={t("center_no_products")}>
-                    {t("by_selected_category_no_products")}
-                  </p>
-                )}
-              </Grid.Col>)}
+                              <p className={st.stocktxt}>
+                                {product.in_stock === 0 ? (
+                                  <span style={{ color: "red" }}>
+                                    {t("sold_out")}
+                                  </span>
+                                ) : (
+                                  <span style={{ color: "green" }}>
+                                    {t("in_stock")} {product.in_stock}{" "}
+                                    {t("items")}
+                                  </span>
+                                )}
+                              </p>
+                              <Button
+                                className={st.stockbtn}
+                                bg={"#FA0100"}
+                                color="red"
+                                leftIcon={<IconBasket size={20} />}
+                                loaderPosition="right"
+                                onClick={() => handleSubtractProduct(product)}
+                              >
+                                {t("add_to_cart")}
+                              </Button>
+                            </div>
+                          </Card>
+                        </Grid.Col>
+                      );
+                    })}
+                  </Grid>
+
+                  {allProducts.length > 0 ? (
+                    <ShowMore
+                      devidePage={devidePage}
+                      allProductsCount={allProductsCount}
+                      currentPage={currentPage}
+                      getPagination={getPagination}
+                      showMore={showMore}
+                    />
+                  ) : (
+                    <p className={t("center_no_products")}>
+                      {t("by_selected_category_no_products")}
+                    </p>
+                  )}
+                </Grid.Col>)}
             </Grid>
           </div>
         </div>

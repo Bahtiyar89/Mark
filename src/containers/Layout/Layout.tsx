@@ -8,8 +8,9 @@ import AuthContext from "context/auth/AuthContext";
 import { ReactComponent as ChatButton } from "assets/chatButton.svg";
 import ChatContext from "../../context/chats/ChatContext";
 import useWebSocket from "./useWebSocket";
-import ChatWindow from "./CustomChat/chat_window";
 import Utils from "utils/Utils";
+
+const ChatWindow = React.lazy(() => import("./CustomChat/chat_window"))
 
 function Layout() {
   const [t, i18n] = useTranslation();

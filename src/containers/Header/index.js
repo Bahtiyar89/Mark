@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { Container, Grid, Indicator } from "@mantine/core";
 
 import { Link } from "react-router-dom";
@@ -36,14 +36,14 @@ function Header() {
     });
   }, [window.location.href, showSearch]);
 
-  const onSearchChanged = (e) => {
+  const onSearchChanged = useCallback((e) => {
     if (e.target.value.length) {
       setErrorName("");
     }
     globalSearchChanged(e.target.value);
-  };
+  }, [globalSearchChanged]);
 
-  const onSearchSubmit = (e) => {
+  const onSearchSubmit = useCallback((e) => {
     e.preventDefault();
     if (searchTxt.length > 2) {
       clearCategory(true);
@@ -52,7 +52,7 @@ function Header() {
     } else {
       setErrorName(t("empty_input_error"));
     }
-  };
+  }, [clearCategory, getProductsByCategories, searchTxt, t]);
 
   return (
     <Container fluid>
@@ -116,4 +116,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default React.memo(Header);

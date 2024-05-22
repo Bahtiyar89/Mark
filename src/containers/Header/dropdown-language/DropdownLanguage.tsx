@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Card, Text, UnstyledButton } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { ReactComponent as RusIcon } from "assets/images/lang/rus.svg";
@@ -12,6 +12,22 @@ import "./style.css";
 interface Props {
   color: string;
 }
+
+const getNavigatorLanguage = () => {
+  // @ts-ignore
+
+  if (navigator.languages && navigator.languages.length) {
+    if (navigator.languages[0].slice(0, 2) == "ru") {
+      return "ru";
+    } else if (navigator.languages[0].slice(0, 2) == "ch") {
+      return "ch";
+    } else {
+      return "en";
+    }
+  } else {
+    return "en";
+  }
+};
 
 const DropdownLanguage = ({ color }: Props) => {
   const languageContext = useContext(LanguageContext);
@@ -55,23 +71,6 @@ const DropdownLanguage = ({ color }: Props) => {
     }
   };
 
-  const getNavigatorLanguage = () => {
-    // @ts-ignore
-
-    if (navigator.languages && navigator.languages.length) {
-      if (navigator.languages[0].slice(0, 2) == "ru") {
-        return "ru";
-      } else if (navigator.languages[0].slice(0, 2) == "ch") {
-        return "ch";
-      } else {
-        return "en";
-      }
-    } else {
-      return "en";
-      //return navigator?.userLanguage || navigator.language || navigator.browserLanguage || 'en';
-    }
-  };
-
   useEffect(() => {
     const language = getNavigatorLanguage();
 
@@ -82,11 +81,13 @@ const DropdownLanguage = ({ color }: Props) => {
     }
   }, []);
 
+  const onDropDown = () => setDropdown(!dropdown)
+
   return (
     <div className="dropdown__lang">
       <div
         className="dropdown__lang-title"
-        onClick={() => setDropdown(!dropdown)}
+        onClick={onDropDown}
       >
         {handleLanguageShow()}
       </div>
@@ -147,4 +148,4 @@ const DropdownLanguage = ({ color }: Props) => {
   );
 };
 
-export default DropdownLanguage;
+export default React.memo(DropdownLanguage);

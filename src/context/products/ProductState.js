@@ -65,11 +65,11 @@ const CatalogState = (props) => {
     doGet(`/ru/product-api/all/?${form}`)
       .then(({ data }) => {
         dispatch({ type: types.LOADING, payload: false });
-        getPriceRange();
         dispatch({
           type: types.GET_PRODUCTS,
           payload: data,
         });
+        getPriceRange();
       })
       .catch((error) => {
         dispatch({ type: types.LOADING, payload: false });

@@ -1,22 +1,17 @@
-import React, { useContext, useState } from "react";
-import { Card, LoadingOverlay, Text, TextInput } from "@mantine/core";
+import React, { useCallback, useContext, useState } from "react";
+import { Card, Text, TextInput } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 
 import { ReactComponent as ChevronDown } from "assets/images/icons/shevron_down.svg";
 import { ReactComponent as ChevronUp } from "assets/images/icons/shevron_up.svg";
 import ProductContext from "../../../context/products/ProductContext";
-import { Checkbox } from "components";
+
 import CategoryFilterMobile from "./CatalogFilterMobile";
-import CategoryRange from "./CategoryRange";
+
 import CategoryBrend from "./CategoryBrend";
 import st from "./st.module.css";
 import CategoryComponent from "components/CategoryComponent";
-import { IconAt } from "@tabler/icons";
-import { useForm } from "@mantine/form";
-import Utils from "utils/Utils";
 import InputRange from "react-input-range";
-
-const { REACT_APP_BASE_URL } = process.env;
 
 interface Props {
   form: any;
@@ -39,12 +34,12 @@ const Category = ({
 }: Props) => {
   const productContext = useContext(ProductContext);
   const [t, i18n] = useTranslation();
-  const { minPrice, maxPrice, loading_product } = productContext;
+  const { minPrice, maxPrice } = productContext;
 
   const [shewronCategory, setShewronCategory] = useState(true);
   const [shewronBrand, setShewronBrand] = useState(true);
 
-  const getCategory = (item: any) => {
+  const getCategory = useCallback((item: any) => {
     if (i18n.language == "en") {
       return item?.RecName_en;
     } else if (i18n.language == "ru") {
@@ -52,9 +47,9 @@ const Category = ({
     } else {
       return item?.RecName_zh_hans;
     }
-  };
+  }, [i18n]);
 
-  const getSubCategory = (item: any) => {
+  const getSubCategory = useCallback((item: any) => {
     if (i18n.language == "en") {
       return item?.RecName_en;
     } else if (i18n.language == "ru") {
@@ -62,7 +57,7 @@ const Category = ({
     } else {
       return item?.RecName_zh_hans;
     }
-  };
+  }, []);
 
   return (
     <>

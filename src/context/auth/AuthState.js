@@ -1,9 +1,9 @@
-import React, { useReducer } from "react";
+import { useReducer } from "react";
 import { useToasts } from "react-toast-notifications";
 import { useTranslation } from "react-i18next";
 import AuthContext from "./AuthContext";
 import AuthReducer from "./AuthReducer";
-import { doGet, doPost } from "../../utils/apiActions";
+import { doPost } from "../../utils/apiActions";
 import * as types from "./types";
 
 const AuthState = (props) => {

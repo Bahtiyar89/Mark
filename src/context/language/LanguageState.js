@@ -2,17 +2,18 @@ import React, { useReducer } from "react";
 import LanguageContext from "./LanguageContext";
 import LanguageReducer from "./LanguageReducer";
 
-import * as types from "./types";
+import { POST_GLOBAL_LANGUAGE } from "./types";
 import { getItemFromStorage } from "utils/localStorage";
 
+const initialState = {
+  global_language: getItemFromStorage("lang"),
+};
+
 const LanguageState = (props) => {
-  const initialState = {
-    global_language: getItemFromStorage("lang"),
-  };
   const [state, dispatch] = useReducer(LanguageReducer, initialState);
 
-  const postGlobalLanguage = async (lang) => {
-    dispatch({ type: types.POST_GLOBAL_LANGUAGE, payload: lang });
+  const postGlobalLanguage = (lang) => {
+    dispatch({ type: POST_GLOBAL_LANGUAGE, payload: lang });
   };
 
   return (

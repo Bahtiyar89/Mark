@@ -3,6 +3,9 @@ import { useTranslation } from "react-i18next";
 import Logo from "assets/images/logo.svg";
 import classes from "./style.module.css";
 import DropdownLanguage from "containers/Header/dropdown-language/DropdownLanguage";
+import React from "react";
+
+const onScroll = () => window.scrollTo({ top: 0, behavior: "smooth" })
 
 function Footer() {
   const [t, i18n] = useTranslation();
@@ -23,7 +26,7 @@ function Footer() {
           bottom: 100,
           cursor: "pointer",
         }}
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        onClick={onScroll}
       >
         {t("up")}
       </button>
@@ -74,11 +77,10 @@ function Footer() {
           <p className={classes.p_item}>{t("contacts")}</p>
         </Link>
       </div>
-
       <hr className={classes.hr} />
       <p className={classes.p_loto_text}>SWT market (С) 2024</p>
     </div>
   );
 }
 
-export default Footer;
+export default React.memo(Footer);
