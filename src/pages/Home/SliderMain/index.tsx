@@ -1,7 +1,7 @@
 import Slider from "react-slick";
-import Alcohol from "../../../assets/images/slider/alcohol.png";
-import Honey from "../../../assets/images/slider/honey.png";
-import Water from "../../../assets/images/slider/water.png";
+import Alcohol from "../../../assets/images/slider/alcohol.webp";
+import Honey from "../../../assets/images/slider/honey.webp";
+import Water from "../../../assets/images/slider/water.webp";
 import "./style.css";
 
 type dataType = {

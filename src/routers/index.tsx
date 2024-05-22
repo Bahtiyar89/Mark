@@ -1,10 +1,20 @@
+import React from "react";
 import PublicRouter from "./PublicRouter";
 import PrivateRouter from "./PrivateRouter";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Basket, Home, Login, DetailedProduct, Profile, Delivery } from "pages";
 import { Layout } from "containers";
-import Adminchat from "pages/Adminchat";
 import Page404 from "pages/page404/Page404";
+
+const Adminchat = React.lazy(() => import("pages/Adminchat"));
+const Basket = React.lazy(() => import('pages/Basket'));
+const Home = React.lazy(() => import('pages/Home'));
+
+const DetailedProduct = React.lazy(() => import('pages/DetailedProduct'));
+const Profile = React.lazy(() => import('pages/Profile'));
+const Delivery = React.lazy(() => import('pages/Delivery'));
+// import { Basket, Home, Login, DetailedProduct, Profile, Delivery } from "pages";
+
+
 
 function MainRoutes() {
   return (
